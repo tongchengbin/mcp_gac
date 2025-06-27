@@ -17,16 +17,12 @@ base_url = "https://gac.yunaq.com"
 
 async def get_client():
     token = os.getenv("GAC_API_KEY")
-    proxies = None
+    proxy = None
     https_proxy = os.getenv("https_proxy")
     http_proxy = os.getenv("http_proxy")
     if https_proxy or http_proxy:
-        proxies = {}
-        if https_proxy:
-            proxies["https://"] = https_proxy
-        if http_proxy:
-            proxies["http://"] = http_proxy
-    return httpx.AsyncClient(proxies=proxies, headers={"API-TOKEN": token, "Content-Type": "application/json"})
+        proxy = https_proxy or http_proxy
+    return httpx.AsyncClient(proxy=proxy, headers={"API-TOKEN": token, "Content-Type": "application/json"})
 
 
 @asynccontextmanager

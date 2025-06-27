@@ -1,6 +1,6 @@
 [project]
 name = "mcp-server-gac"
-version = "0.0.2"
+version = "0.0.3"
 description = "A Model Context Protocol server providing tools for Yunaq GAC queries for LLMs"
 readme = "README.md"
 requires-python = ">=3.10"
